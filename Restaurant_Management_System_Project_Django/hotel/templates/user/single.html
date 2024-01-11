@@ -1,0 +1,254 @@
+
+	{% load static %}
+	
+	{% include "../includes/landing_top.html" %}
+	
+	<!DOCTYPE html>
+	<html lang="en">
+	
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Your Blog Title</title>
+		<style>
+			body, h1, h2, h3, p, ul {
+				margin: 0;
+				padding: 0;
+			}
+	
+			body {
+				font-family: 'Arial', sans-serif;
+				background-color: #f5f5f5;
+			}
+	
+			.container {
+				max-width: 960px;
+				margin: 0 auto;
+			}
+	
+			.bg-img {
+				height: 300px;
+				background-color: #333;
+				color: #fff;
+				text-align: center;
+				padding: 50px 0;
+			}
+	
+			.blog {
+				margin-top: 30px;
+			}
+	
+			.blog-left p {
+				margin-bottom: 20px;
+			}
+	
+			.blog-left img {
+				width: 100%;
+				height: auto;
+				margin-bottom: 20px;
+			}
+	
+			.blog-left-bottom p {
+				margin-bottom: 20px;
+			}
+	
+			.btn-primary {
+				background-color: #3498db;
+				color: #fff;
+				border: none;
+				padding: 10px 20px;
+				font-size: 16px;
+				cursor: pointer;
+			}
+	
+			.btn-primary:hover {
+				background-color: #2980b9;
+			}
+	
+			.response h3 {
+				margin-top: 30px;
+			}
+	
+			.media-left img {
+				width: 64px;
+				height: 64px;
+				border-radius: 50%;
+			}
+	
+			.media-body p {
+				margin-bottom: 10px;
+			}
+	
+			.media-body ul {
+				list-style: none;
+				padding: 0;
+			}
+	
+			.media-body ul li {
+				display: inline-block;
+				margin-right: 10px;
+				font-size: 12px;
+				color: #555;
+			}
+	
+			.opinion {
+				margin-top: 30px;
+			}
+	
+			.opinion h2 {
+				margin-bottom: 20px;
+			}
+	
+			.opinion form {
+				display: flex;
+				flex-direction: column;
+			}
+	
+			.opinion input,
+			.opinion textarea {
+				margin-bottom: 15px;
+				padding: 10px;
+			}
+	
+			.categories {
+				background-color: #f5f5f5;
+				padding: 20px;
+			}
+	
+			.categories h3 {
+				color: #333;
+				margin-bottom: 15px;
+			}
+	
+			.categories ul {
+				list-style-type: none;
+				padding: 0;
+			}
+	
+			.categories li {
+				margin-bottom: 10px;
+			}
+	
+			/* Responsive Styles */
+			@media screen and (max-width: 768px) {
+				.blog-left img {
+					margin-bottom: 10px;
+				}
+			}
+	
+			@media screen and (max-width: 480px) {
+				.bg-img {
+					height: 200px;
+					padding: 30px 0;
+				}
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="bg-img">
+			<!-- Banner -->
+			{% include "../includes/banner1.html" %}
+			<!-- //Banner -->
+		</div>
+	
+		<!-- Single Blog Post -->
+		<div class="blog">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 blog-top-left-grid">
+						<div class="left-blog left-single">
+							<div class="blog-left">
+								<div class="single-left-left">
+									<p>Posted By <a href="#">ASH</a> &nbsp;&nbsp; on Jan 9, 2024 &nbsp;&nbsp; <a href="#">Comments (10)</a></p>
+									<img src="/media/{{food.image}}" alt="">
+								</div>
+								<div class="blog-left-bottom">
+									<p>{{food.content_description}}</p>
+								</div>
+								<a href="{% url 'hotel:addTocart' food.id request.user.id %}">
+									<button class="btn btn-primary">Add to Cart</button>
+								</a>
+							</div>
+							<div class="response">
+								<h3>Responses</h3>
+								<div class="media response-info">
+									<div class="media-left response-text-left">
+										<a href="#">
+											<img class="media-object" src="{% static 'images/t1.jpg' %}" alt="">
+										</a>
+										<h5><a href="#">ASH</a></h5>
+									</div>
+									<div class="media-body response-text-right">
+										<p>Thank you, come again</p>
+										<ul>
+											<li>Jan 8, 2024</li>
+											<li><a href="single.html">Reply</a></li>
+										</ul>
+										<div class="media response-info">
+											<div class="media-left response-text-left">
+												<a href="#">
+													<img class="media-object" src="{% static 'images/t2.jpg' %}" alt="">
+												</a>
+												<h5><a href="#">ASH</a></h5>
+											</div>
+											<div class="media-body response-text-right">
+												<p>Thankyou for Your kind words</p>
+												<ul>
+													<li>Jan 8, 2024</li>
+													<li><a href="single.html">Reply</a></li>
+												</ul>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+								<div class="media response-info">
+									<div class="media-left response-text-left">
+										<a href="#">
+											<img class="media-object" src="{% static 'images/t3.jpg' %}" alt="">
+										</a>
+										<h5><a href="#">ASH</a></h5>
+									</div>
+									<div class="media-body response-text-right">
+										<p>Thank You May God Bless You All</p>
+										<ul>
+											<li>Jan 09, 2024</li>
+											<li><a href="single.html">Reply</a></li>
+										</ul>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+	
+							<div class="opinion">
+								<h2>Leave Your Comment</h2>
+								<form action="#" method="post">
+									<input type="text" name="Name" placeholder="Name" required="">
+									<input type="text" name="Email" placeholder="Email" required="">
+									<textarea name="Message" placeholder="Message" required=""></textarea>
+									<input type="submit" value="SEND">
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 blog-top-right-grid">
+						<div class="categories">
+							<h3>Categories</h3>
+							<ul>
+								<li><a href="#">Delhi's Best Food</a></li>
+								<li><a href="#">Bihar's Best Food</a></li>
+								<li><a href="#">Punjab's Best Food</a></li>
+								<li><a href="#">South Food</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //Single Blog Post -->
+	
+		{% include "../includes/footer.html" %}
+	</body>
+	

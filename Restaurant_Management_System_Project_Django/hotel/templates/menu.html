@@ -1,0 +1,96 @@
+{% load static %}
+{% load mathfilters %}
+{% include "includes/landing_top.html" %}
+<style>
+	
+	.menu-items {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-around;
+	}
+  
+	.menu-item {
+	  width: 250px;
+	  height: 350px;
+	  margin: 20px;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	  transition: transform 0.3s ease-in-out;
+	  background-color: #fff;
+	  border-radius: 10px;
+	  overflow: hidden;
+	}
+  
+	.item-image {
+	  width: 100%;
+	  height: 60%;
+	  overflow: hidden;
+	  border-radius: 10px 10px 0 0;
+	}
+  
+	.item-image img {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	}
+  
+	.item-details {
+	  padding: 15px;
+	  text-align: center;
+	  height: 40%;
+	}
+  
+	.item-details h4 {
+	  margin: 10px 0;
+	  font-size: 20px;
+	  color: #333;
+	}
+  
+	.item-details p {
+	  margin: 0;
+	  font-size: 18px;
+	  color: #888;
+	}
+  
+	.menu-item:hover {
+	  transform: translateY(-5px);
+	  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	}
+  </style>
+  
+  
+<body>
+	
+   
+    <script src="{% static 'js/jquery.vide.min.js' %}"></script>
+    <div data-vide-bg="{% static 'video/bg.jpg' %}">
+        <!-- banner -->
+        {% include "includes/banner.html" %}
+        <!-- //banner -->
+    </div>
+    <!-- menu -->
+    <div class="menu">
+        <div class="container">
+            <div class="menu-heading">
+                <h2>Our Delicious Menu</h2>
+            </div>
+            <div class="menu-items">
+                {% for food in foods %}
+                <div class="menu-item">
+                    <a href="{% url 'hotel:food_details' food.id %}" class="item-link">
+                        <div class="item-image">
+                            <img src="/media/{{ food.image }}" alt="{{ food.name }}">
+                        </div>
+                        <div class="item-details">
+                            <h4>{{ food.name }}</h4>
+                            <p><i class="fa fa-inr"></i> {{ food.sale_price }}</p>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- //menu -->
+    {% include "includes/footer.html" %}
+</body>
+

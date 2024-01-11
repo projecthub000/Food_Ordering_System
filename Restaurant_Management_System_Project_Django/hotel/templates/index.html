@@ -1,0 +1,331 @@
+{% load static %}
+{% load mathfilters %}
+{% include "includes/landing_top.html" %}
+<style>
+	body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .customer {
+            background-color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .customer-heading h3 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .customer-heading-grids {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .customer-grid {
+            width: 30%;
+            margin: 15px;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .customer-grid:hover {
+            transform: translateY(-5px);
+        }
+        
+        .customer-info p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .customer-img h5 {
+            font-size: 18px;
+            color: #333;
+            margin-top: 10px;
+        }
+	.features {
+    background-color: #f9f9f9; /* Set background color */
+    padding: 80px 0;
+}
+
+.features-heading h2 {
+    font-family: 'Roboto', sans-serif; /* Change font-family as desired */
+    font-weight: 700;
+    font-size: 36px;
+    color: #333; /* Adjust color to fit your design */
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.features-right-info h3 {
+    font-family: 'Roboto', sans-serif; /* Change font-family as desired */
+    font-size: 24px;
+    color: #222; /* Adjust color to fit your design */
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.features-right-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ffcc00; /* Adjust background color */
+    margin-right: 30px;
+}
+
+.features-right-icon i {
+    font-size: 32px;
+    color: #fff; /* Adjust icon color */
+}
+
+.features-right-grids {
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #fff; /* Adjust background color */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+    margin-bottom: 40px;
+}
+
+.features-right-right h4 {
+    font-family: 'Roboto', sans-serif; /* Change font-family as desired */
+    font-size: 22px;
+    color: #333; /* Adjust color to fit your design */
+    margin-bottom: 15px;
+}
+
+.features-right-right p {
+    color: #666; /* Adjust color to fit your design */
+    line-height: 1.6;
+}
+/* Add your custom CSS styles here */
+.special {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  /* Add any other styles for the container */
+}
+
+.special-heading h3 {
+  color: #333;
+  text-align: center;
+  /* Additional styles for the heading */
+}
+
+.special-grids {
+  margin-top: 20px;
+  /* Additional styles for the grid container */
+}
+
+.w3l-special-grid {
+  margin-bottom: 20px;
+  /* Additional styles for each grid item */
+}
+
+.w3ls-special-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.w3ls-special-img:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease;
+  z-index: 1;
+}
+
+.w3ls-special-img:hover:before {
+  opacity: 0;
+}
+
+.w3ls-special-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  z-index: 2;
+  transition: 0.3s ease;
+}
+
+.w3ls-special-text h4 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.agileits-special-info h4 {
+  color: #333;
+  /* Additional styles for the headings in info section */
+}
+
+.agileits-special-info p {
+  color: #666;
+  /* Additional styles for the paragraph in info section */
+}
+
+</style>
+<body>
+	<script src="{% static 'js/jquery.vide.min.js' %}"></script>
+	<div data-vide-bg="{% static 'video/bg.jpg' %}">
+		<!-- banner -->
+		{% include "includes/banner.html" %}
+		<!-- //banner -->
+	</div>
+	<!-- special -->
+	<div class="special">
+		<div class="container">
+		  <div class="special-heading">
+			<h3>Today Specials</h3>
+		  </div>
+		  <div class="special-grids">
+			{% for f in food %}
+			<div class="col-md-4 w3l-special-grid">
+			  <a href="{% url 'hotel:food_details' f.id %}">
+				<div class="col-md-6 w3ls-special-img" style="background: url('/media/{{f.image}}') no-repeat -17px 0px; background-size: cover;">
+				  <div class="w3ls-special-text effect-1">
+					<h4>{{f.name|truncatechars:11}}</h4>
+				  </div>
+				</div>
+			  </a>
+			  <div class="col-md-6 agileits-special-info">
+				<a href="{% url 'hotel:food_details' f.id %}">
+				  <h4>{{f.name|truncatechars:11}}</h4>
+				</a>
+				<p>{{f.content_description|truncatechars:90}}</p>
+			  </div>
+			</div>
+			{% endfor %}
+			<div class="clearfix"> </div>
+		  </div>
+		</div>
+	  </div>
+	<!-- //special -->
+	<!-- features -->
+	<section class="features">
+		<div class="container">
+			<div class="features-heading">
+				<h2>Discover Our Features</h2>
+			</div>
+			<div class="features-grids">
+				<div class="col-md-4 features-left">
+					<!-- Optional: You can add an image or additional content here -->
+				</div>
+				<div class="col-md-8 features-right">
+					<div class="features-right-info">
+						<h3>Welcome to a World of Culinary Delight</h3>
+						<p>The website greets users with an easily navigable interface, showcasing a diverse range of cuisines. Its user-friendly design ensures seamless exploration, aided by a sophisticated search function enabling quick filtering by cuisine type, price, or dietary preferences.</p>
+					</div>
+					<div class="features-right-grids">
+						<div class="features-right-left">
+							<div class="features-right-icon">
+								<i class="fa fa-users" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="features-right-right">
+							<h4>Diverse Restaurant Selection</h4>
+							<p>Explore an extensive database of restaurants offering a wide array of cuisines, specialties, and dining options catering to various tastes and preferences.</p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<!-- Additional features-right-grids follow similarly -->
+					<div class="features-right-grids">
+						<div class="features-right-left">
+							<div class="features-right-icon">
+								<i class="fa fa-asterisk" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="features-right-right">
+							<h4>Effortless Ordering</h4>
+							<p>Enjoy a streamlined ordering process, customizing your orders with add-ons, substitutions, and special requests for a personalized dining experience.</p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="features-right-grids">
+						<div class="features-right-left">
+							<div class="features-right-icon">
+								<i class="fa fa-money" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="features-right-right">
+							<h4>Real-Time Order Tracking</h4>
+							<p>Track your orders in real-time, from kitchen preparation to doorstep delivery, ensuring transparency and convenience.</p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<!-- Additional features-right-grids can be added similarly -->
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</section>
+	
+	
+	<!-- //features -->
+	<!-- customer -->
+	<div class="customer">
+		<div class="container">
+			<div class="customer-heading">
+				<h3>What Our Customers are Saying</h3>
+			</div>
+			<div class="customer-heading-grids">
+				<div class="col-md-4 customer-grid">
+					<div class="customer-info">
+						<p>I'm impressed by ASH's products—high-quality and exactly what I was looking for!</p>
+					</div>
+					<div class="customer-img">
+						<h5>Aditya</h5>
+					</div>
+				</div>
+				<div class="col-md-4 customer-grid">
+					<div class="customer-info">
+						<p>ASH's team went above and beyond to ensure I was satisfied. Exceptional customer service</p>
+					</div>
+					<div class="customer-img">
+						<h5>Harshit</h5>
+					</div>
+				</div>
+				<div class="col-md-4 customer-grid">
+					<div class="customer-info">
+						<p>Best in the market</p>
+					</div>
+					<div class="customer-img">
+						<h5>Amiya</h5>
+					</div>
+				</div>
+				<div class="col-md-4 customer-grid">
+					<div class="customer-info">
+						<p>ASH's service is top-notch! Their attention to detail and swift response exceeded my expectations</p>
+					</div>
+					<div class="customer-img">
+						<h5>Hritu</h5>
+					</div>
+				</div>
+				<div class="col-md-4 customer-grid">
+					<div class="customer-info">
+						<p>Super Tasty and Delicious</p>
+					</div>
+					<div class="customer-img">
+						<h5>Surbhi</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //customer -->
+	{% include "includes/footer.html" %}

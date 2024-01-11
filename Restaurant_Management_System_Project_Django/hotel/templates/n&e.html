@@ -1,0 +1,95 @@
+{% include "includes/landing_top.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The ASH Family</title>
+    <style>
+        /* body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        } */
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background: #d9534f;
+            background: linear-gradient(45deg, #d9534f, #ea7d76);
+            color: #fff;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        header::before {
+            content: '\2665';
+            font-size: 50px;
+            color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        article {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 10px;
+            width: 300px;
+        }
+
+        img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        h2, p, time {
+            padding: 15px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>Stay updated with our latest news and events!</p>
+    </header>
+
+    <section>
+        <article>
+            <img src="https://images.unsplash.com/photo-1652521711984-4702c1ea960b?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="News 1">
+            <h2>Exciting News: ASH Food Festival</h2>
+            <time>January 22, 2024</time>
+            <p>On the ocasion of lord shree Ram Day, Join us for a culinary extravaganza at the ASH Food Festival. Explore diverse flavors and indulge in a gastronomic journey like never before!</p>
+        </article>
+
+        <article>
+            <img src="https://images.unsplash.com/photo-1514986888952-8cd320577b68?q=80&w=1776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Event 1">
+            <h2>Community Cooking Class</h2>
+            <time>February 5, 2024</time>
+            <p>Enhance your culinary skills with our community cooking class. Surbhi will be leading the session, sharing valuable tips and tricks.</p>
+        </article>
+
+        <!-- Add more news and events as needed -->
+    </section>
+</body>
+</html>
+
+{% include "includes/footer.html" %}

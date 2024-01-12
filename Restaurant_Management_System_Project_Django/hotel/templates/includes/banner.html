@@ -45,7 +45,7 @@
     }
 }
 .banner {
-    background: linear-gradient(135deg, #FF3CAC, #FF6D28, #FF3CAC, #FF6D28);
+    background: linear-gradient(to right, #FFDAB9, #FFB6C1);
     /* Add more color stops or adjust the colors as desired */
     color: #fff;
     padding: 50px 0;
@@ -64,17 +64,19 @@
                 <div class="logo">
                     <h1 style="color: blue;"><a href="/">नमस्कारम् 🙏</a></h1>
                 </div>
+                <!-- Search Form -->
+                
                 <div class="top-nav">
+        
                     <nav class="navbar navbar-default">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                             data-target="#bs-example-navbar-collapse-1">Menu
                         </button>
+                    
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
                                 <li><a class="active" href="{% url 'hotel:index' %}">Home</a></li>
-
-                                 <!-- Search Form -->
-                                 <li class="search-bar">
+                                <li class="search-bar">
                                     <form class="navbar-form navbar-left" action="{% url 'hotel:food_search' %}"
                                         method="get">
                                         <div class="form-group">
@@ -84,8 +86,6 @@
                                         <button type="submit" class="btn btn-search">&#128269;</button>
                                     </form>
                                 </li>
-
-
                                 <li><a href="{% url 'hotel:menu' %}">Food</a></li>
                                 {% if not user.is_authenticated %}
                                     <a href="{% url 'hotel:dashboard_admin' %}">Admin Dashboard</a>
@@ -111,8 +111,8 @@
                 <div class="clearfix"> </div>
             </div>
             <div class="banner-info">
-                <h2>Delicious food served at your doorstep</h2>
-                <p>Experience the fastest delivery. Order now and get your food at your doorstep in 30 minutes!</p>
+                <h2 style=" text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">Delicious food served at your doorstep</h2>
+                <p style="color: dimgray;">Experience the fastest delivery. Order now and get your food at your doorstep in 30 minutes !</p>
             </div>
             <div class="banner-grads">
                 

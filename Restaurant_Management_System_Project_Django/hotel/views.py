@@ -74,6 +74,8 @@ def news(request):
     return render(request, 'n&e.html')
 def about(request):
     return render(request, 'about.html')
+def mentor(request):
+    return render(request, 'mentor.html')
 
 # views.py
 from django.shortcuts import render
@@ -400,4 +402,22 @@ def delivery_boy(request):
             return render(request, 'delivery_boy.html', {'orders':orders})
     
     return redirect('hotel:index')
+@login_required
+def payment_page(request):
+    if request.method == 'POST':
         
+        card_number = request.POST.get('card_number')
+        pin = request.POST.get('pin')
+
+        # Perform payment processing logic here (we can use a payment gateway API but don't need haha)
+
+        # For simplicity, we can assume the payment is successful
+        success_message = "Your order is successful!"
+
+        return render(request, 'payment_success.html', {'success_message': success_message})
+    user = User.objects.get(id=request.user.id)
+    items = Cart.objects.filter(user=user)
+    total = 0
+    for item in items:
+        total += item.food.sale_price
+    return render(request, 'payment_page.html',{'items': items, 'total':total})

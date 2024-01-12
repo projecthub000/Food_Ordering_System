@@ -1,0 +1,90 @@
+{% load static %}
+{% include "includes/base.html" %}
+{% include "includes/navbarheader.html" %}
+{% include "includes/navtop.html" %}
+
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .success-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+
+  h1 {
+    font-size: 3em;
+    color: #4CAF50; /* Green color */
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  .redirect-message {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #4CAF50; /* Green color */
+  }
+
+  .redirect-timer {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #555;
+  }
+
+  /* Add additional styles if needed */
+
+  /* Responsive design for smaller screens */
+  @media only screen and (max-width: 600px) {
+    .success-container {
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    p {
+      font-size: 1em;
+    }
+
+    .redirect-message {
+      font-size: 1.2em;
+    }
+
+    .redirect-timer {
+      font-size: 1em;
+    }
+  }
+</style>
+
+{% block content %}
+  <div class="success-container">
+    <h1>Payment Success</h1>
+    <p class="redirect-message">{{ success_message }}</p>
+    <p class="redirect-timer">You will be redirected to the home page shortly...</p>
+  </div>
+  <script>
+    setTimeout(function() {
+      window.location.href = "{% url 'hotel:menu' %}";
+    }, 5000);  <!-- Redirect after 5 seconds -->
+  </script>
+{% endblock %}
+
+{% include "includes/footer.html" %}

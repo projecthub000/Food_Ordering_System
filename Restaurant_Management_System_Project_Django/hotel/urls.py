@@ -15,7 +15,8 @@ urlpatterns = [
     path('news_event/', views.news, name='n&e'),
     path('about/', views.about, name='about'),
     path('food/search/', views.food_search, name='food_search'),
-
+    path('payment/', views.payment_page, name='payment_page'),
+    path('mentor/', views.mentor, name='mentor'),
     # Admin dashboard views
     path('dashboard/admin/users/', views.users_admin, name='users_admin'),  # Admin: User management
     path('dashboard/admin/orders/', views.orders_admin, name='orders_admin'),  # Admin: Order management

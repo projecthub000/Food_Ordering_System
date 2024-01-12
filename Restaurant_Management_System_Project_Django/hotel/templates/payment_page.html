@@ -1,0 +1,133 @@
+{% load static %}
+{% include "includes/landing_top.html" %}
+{% load mathfilters %}
+
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://swarajya.gumlet.io/swarajya/2020-08/07495395-bd8d-4e9e-a4e3-621d67594ab1/Shri_Ram_Mandir_Ayodhya_front.jpg?w=640&q=75&auto=format,compress&format=webp") fixed center/cover no-repeat;
+    background-color: rgba(255, 255, 255, 0.5); 
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .payment-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  label {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 5px;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .half-width {
+    width: 48%;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  .home-button {
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  .home-button:hover {
+    background-color: #2980b9;
+  }
+</style>
+
+{% block content %}
+  <div class="payment-container">
+    <h1>Payment Page</h1>
+
+    <!-- Your extended payment form goes here -->
+    <form method="post" action="{% url 'hotel:payment_page' %}">
+      {% csrf_token %}
+      
+      <label for="card_number">Card Number:</label>
+      <input type="text" name="card_number" placeholder="**** **** **** ****" required>
+      
+      <div class="flex-container">
+        <div class="half-width">
+          <label for="expiry_date">Expiry Date:</label>
+          <input type="text" name="expiry_date" placeholder="MM/YY" required>
+        </div>
+
+        <div class="half-width">
+          <label for="cvv">CVV:</label>
+          <input type="text" name="cvv" placeholder="***" required>
+        </div>
+      </div>
+
+      <label for="cardholder_name">Cardholder's Name:</label>
+      <input type="text" name="cardholder_name" required>
+
+      <label for="amount">Total Amount</label>
+      {{total}}
+      
+      <button type="submit">Confirm Order</button>
+    </form>
+   <br>
+    <a class="home-button" href="{% url 'hotel:menu' %}">
+      Go to Home Page
+    </a>
+  </div>
+{% endblock %}

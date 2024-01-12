@@ -1,0 +1,102 @@
+{% include "includes/landing_top.html" %}
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #ff9a8b, #ff6f69);
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .card {
+        background-color: rgba(73, 109, 137, 0.9);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        padding: 40px;
+        text-align: center;
+        max-width: 600px;
+        width: 90%;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    h1 {
+        font-size: 3em;
+        color: #ffd700; /* Golden Yellow */
+        margin-bottom: 20px;
+        font-family: 'Caveat', cursive;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .quote {
+        font-style: italic;
+        color: #ffc107; /* Yellow */
+        font-family: 'Dancing Script', cursive;
+    }
+
+    .signature {
+        font-weight: bold;
+        color: #3498db; /* Blue */
+        margin-top: 20px;
+        font-family: 'Pacifico', cursive;
+    }
+
+    .rating {
+        font-size: 2.5em;
+        margin-top: 20px;
+        color: #f39c12; /* Orange */
+        font-family: 'Bungee', cursive;
+    }
+
+    .heart-emoji {
+        font-size: 1.5em;
+        color: #e74c3c; /* Red */
+        margin-right: 5px;
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    .handshake-emoji {
+        font-size: 1.5em;
+        color: #27ae60; /* Green */
+        margin-right: 5px;
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    .small-text {
+        font-size: 0.8em;
+        margin-top: 10px;
+        color: #777;
+        font-family: 'Montserrat', sans-serif;
+    }
+</style>
+
+<body>
+    <div class="card">
+        <h1>Heartfelt Gratitude, Nikhil Sir!</h1>
+        <p>Your unwavering support and dedication have been the cornerstone of our success, Nikhil Sir. Your expertise and insightful teachings have not only imparted valuable technical skills but have also fueled our enthusiasm for learning and growth.</p>
+        <p>Working on the food ordering system project under your guidance has been an incredible journey, and we are profoundly grateful for the wisdom you've shared. Your commitment to our development has been nothing short of inspiring. Thank you for being an exceptional mentor and a guiding force throughout this remarkable learning experience. 🙌🌟</p>
+        <p class="quote">"A mentor like you is a rare gem. Your support has been like a comforting embrace, guiding us through challenges with wisdom and care."</p>
+        <p  style="color:rgb(255, 255, 255)"class="signature">With immense gratitude, <br>The ASH Team<span class="heart-emoji">❤️</span> <span class="handshake-emoji">🤝</span></p>
+        <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
+    </div>
+</body>
